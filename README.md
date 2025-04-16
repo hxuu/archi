@@ -30,3 +30,7 @@ syscall
 
 ![mips-xray](screenshots/2025-04-16-11-26-42.png)
 
+5. Donner l’état des signaux de l’unité de contrôle et du alu-contrôle pour les instructions addi et subi
+
+![addi](screenshots/2025-04-16-12-00-25.png)
+![sub](screenshots/2025-04-16-12-20-14.png)
