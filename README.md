@@ -8,7 +8,7 @@
 
 2. copy the code from example 1 in the pdf
 
-```bash
+```asm
 .data
 vars:   .word 5
      .text
@@ -22,5 +22,11 @@ subi $t2, $t0,4
 syscall
 ```
 
-3. Donner le code  binaire de chaque instruction et le groupe de format.
+3. Donner le code  binaire de chaque instruction et le groupe de format. (press F3)
+
+![binary-encoding](screenshots/2025-04-16-11-23-27.png)
+
+4. Pour vérifier (the way of the bits) ouvrir la fenêtre MIPS X-RAY avec Tools>mips X-RAY.
+
+![mips-xray](screenshots/2025-04-16-11-26-42.png)
 
