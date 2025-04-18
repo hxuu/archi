@@ -98,3 +98,51 @@ What we're doing here is:
 2. Déterminer  la valeur du registre pc pour chaque instruction
 
 ![Video showcasing this is in videos/example2-program-counter-2025-04-18_17.24.25.mp4](videos/example2-program-counter-2025-04-18_17.24.25.mp4)
+
+### Example 03
+
+![source-code](screenshots/2025-04-18-17-48-17.png)
+
+1. PC values for branch instructions
+
+The **branch instructions** here are:
+
+- `jal update`: PC jumps to `update` label (i.e., address of `update`)
+- `jr $ra`: PC jumps back to return address (i.e., address after `jal`)
+- `j suit`: PC jumps to `suit` label
+
+2. The problem is:
+
+- Problem 1: `$t0` is uninitialized
+```asm
+add $s4, $t0, $v0
+```
+- `$t0` was never assigned → contains garbage value → `s4` is incorrect
+
+- Problem 2: `syscall` without setting `$v0`
+```asm
+suit:
+syscall
+```
+- No syscall code in `$v0` → unpredictable behavior or MARS crash
+
+---
+
+3. two solutions:
+
+- **Solution 1: Initialize `$t0` before use**
+Add before the `add` instruction:
+```asm
+li $t0, 2     # Example initialization
+```
+
+- **Solution 2: Set a valid syscall code**
+Before `syscall`, specify the syscall type:
+```asm
+li $v0, 10    # Exit syscall
+syscall
+```
+
+Other options:
+- `li $v0, 1` + `move $a0, $s4` → print integer
+- `li $v0, 10` → exit
