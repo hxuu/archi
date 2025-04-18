@@ -97,4 +97,4 @@ What we're doing here is:
 
 2. Déterminer  la valeur du registre pc pour chaque instruction
 
-![](videos/example2-program-counter-2025-04-18_17.24.25.mp4)
+![Video showcasing this is in videos/example2-program-counter-2025-04-18_17.24.25.mp4](videos/example2-program-counter-2025-04-18_17.24.25.mp4)
